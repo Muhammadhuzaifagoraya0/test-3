@@ -1,26 +1,100 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-brand: #2bb6b6;
+  --color-brand-dark: #1ab5b3;
+  --color-brand-light: #54babb;
+  --color-dark-overlay: #2b303c;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Courier New", Courier, monospace;
+  color: #333;
+  background: #fff;
+}
+
+.container-custom {
+  width: 100%;
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.title-section h1 {
+  color: #000;
+  font-size: 45px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 10px;
+}
+
+.title-section p {
+  color: #838383;
+  font-size: 18px;
+  line-height: 24px;
+  margin: 0;
+}
+
+/* Static skewed teal bg that flattens on hover (CTA buttons / service icons) */
+.skew-cta {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  z-index: 0;
+}
+.skew-cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-brand);
+  transform: skewX(-25deg);
+  transition: transform 0.17s ease-in-out;
+  z-index: -1;
+  backface-visibility: hidden;
+}
+.skew-cta:hover::after {
+  transform: skewX(0deg);
+}
+.skew-cta > * {
+  position: relative;
+  z-index: 1;
+}
+
+.skew-cta-white::after {
+  background: #fff;
+  transform: skewX(-20deg);
+}
+
+/* Skewed teal bg that fills in from 0 height on hover/active (filter tabs) */
+.skew-fill {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  z-index: 0;
+}
+.skew-fill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  height: 0;
+  background: var(--color-brand);
+  transform: skewX(-25deg);
+  transition: height 0.17s ease-in-out;
+  z-index: -1;
+}
+.skew-fill:hover::after,
+.skew-fill.active::after {
+  height: 100%;
+}
+.skew-fill > * {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 767px) {
+  .title-section h1 {
+    font-size: 32px;
+  }
 }
