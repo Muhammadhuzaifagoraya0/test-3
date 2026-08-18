@@ -74,6 +74,36 @@ body {
   transform: skewX(-20deg);
 }
 
+/* Service icon box with skewed teal background */
+.service-icon-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: var(--color-brand);
+  transform: skewX(-25deg);
+  flex-shrink: 0;
+  overflow: visible;
+}
+.service-icon-box svg {
+  transform: skewX(25deg);
+  width: 32px;
+  height: 32px;
+}
+
+@media (max-width: 767px) {
+  .service-icon-box {
+    width: 70px;
+    height: 70px;
+  }
+  .service-icon-box svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
 /* Skewed teal bg that fills in from 0 height on hover/active (filter tabs) */
 .skew-fill {
   position: relative;
