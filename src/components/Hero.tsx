@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const slides = [
   {
@@ -71,9 +72,9 @@ export default function Hero() {
             {slide.text}
           </p>
           {slide.button && (
-            <a href="#" className="skew-cta mt-6 px-8 py-3.5 text-[17px] font-bold uppercase text-white">
+            <Link href="/about" className="skew-cta mt-6 px-8 py-3.5 text-[17px] font-bold uppercase text-white">
               <span>Learn More</span>
-            </a>
+            </Link>
           )}
         </div>
       ))}

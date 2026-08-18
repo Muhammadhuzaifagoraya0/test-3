@@ -85,26 +85,26 @@ export default function About() {
         <div className="mb-12 grid gap-12 md:grid-cols-2">
           <div>
             <div className="mb-10">
-              <h2 className="mb-1.5 text-[35px] font-bold uppercase text-black">
+              <h2 className="mb-1.5 text-[24px] font-bold uppercase text-black md:text-[35px]">
                 Company Biography
               </h2>
-              <span className="inline-block bg-brand px-1.5 text-[18px] uppercase text-white">
+              <span className="inline-block bg-brand px-1.5 text-[14px] uppercase text-white md:text-[18px]">
                 Short story about us
               </span>
             </div>
-            <p className="mb-5 text-[20px] leading-[26px] text-[#8b8b8b]">
+            <p className="mb-5 text-[16px] leading-[22px] text-[#8b8b8b] md:text-[20px] md:leading-[26px]">
               This is <span className="font-bold text-brand">Photoshop&apos;s</span> version of
               Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin,
               lorem quis bibendum auctor, nisi elit
             </p>
-            <p className="mb-5 text-[20px] leading-[26px] text-[#8b8b8b]">
+            <p className="mb-5 text-[16px] leading-[22px] text-[#8b8b8b] md:text-[20px] md:leading-[26px]">
               Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan
               ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris
               vitae erat consequat auctor eu in elit.{" "}
               <span className="font-bold text-brand">Class aptent taciti</span> sociosqu ad
               litora torquent per conubia nostra, per inceptos himenaeos.
             </p>
-            <p className="text-[20px] leading-[26px] text-[#8b8b8b]">
+            <p className="text-[16px] leading-[22px] text-[#8b8b8b] md:text-[20px] md:leading-[26px]">
               Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a
               augue. Sed non
             </p>
@@ -112,8 +112,8 @@ export default function About() {
 
           <div>
             <div className="mb-10">
-              <h2 className="mb-1.5 text-[35px] font-bold uppercase text-black">Our Clients</h2>
-              <span className="inline-block bg-brand px-1.5 text-[18px] uppercase text-white">
+              <h2 className="mb-1.5 text-[24px] font-bold uppercase text-black md:text-[35px]">Our Clients</h2>
+              <span className="inline-block bg-brand px-1.5 text-[14px] uppercase text-white md:text-[18px]">
                 We love our clients
               </span>
             </div>

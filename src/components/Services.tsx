@@ -34,18 +34,18 @@ export default function Services() {
           <p>This is Photoshop&apos;s version of Lorem Ipsum. Proin gravida</p>
         </div>
 
-        <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
-            <div key={service.title} className="flex overflow-hidden">
-              <a href="#" className="skew-cta ml-0 flex h-16 w-12 shrink-0 items-center justify-center md:ml-[15px] md:h-20 md:w-14">
+            <div key={service.title} className="flex gap-4 pl-2 md:pl-0">
+              <a href="#" className="skew-cta flex h-16 w-14 shrink-0 items-center justify-center md:h-20 md:w-16">
                 <svg className="relative z-10 h-5 w-5 text-white md:h-7 md:w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   {service.icon.split("|").map((d) => (
                     <path key={d} strokeLinecap="round" strokeLinejoin="round" d={d} />
                   ))}
                 </svg>
               </a>
-              <div className="ml-4 text-center md:ml-6">
-                <h3 className="mb-1 text-[16px] uppercase text-[#181818] md:text-[20px]">{service.title}</h3>
+              <div className="min-w-0 text-left">
+                <h3 className="mb-1 text-[15px] uppercase text-[#181818] md:text-[20px]">{service.title}</h3>
                 <p className="text-[13px] leading-[18px] text-[#a8a8a8] md:text-[15px] md:leading-[22px]">
                   Duis sed odio sit amet nibh vulputate cursus a sit amet mauris morbi accumsan.
                 </p>

@@ -30,7 +30,7 @@ export default function Contact() {
         <div className="grid gap-10 md:grid-cols-2">
           <div>
             <div className="mb-3.5 border-b border-[#414141] pb-4">
-              <h1 className="mb-2.5 text-[30px] font-normal text-white">Contact info</h1>
+              <h1 className="mb-2.5 text-[22px] font-normal text-white md:text-[30px]">Contact info</h1>
               <p className="mb-4 text-[15px] leading-[21px] text-white">
                 Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat
                 consequat.
@@ -56,8 +56,8 @@ export default function Contact() {
             </ul>
           </div>
 
-          <form className="grid grid-cols-1 gap-x-4 sm:grid-cols-2">
-            <div className="flex flex-col gap-2.5">
+          <form className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-x-4 sm:gap-y-3">
+            <div className="flex flex-col gap-3">
               {fields.map((f) => (
                 <div key={f.name} className="relative pl-12 md:pl-[58px]">
                   <span className="absolute left-0 top-0 z-10 flex h-12 w-12 items-center justify-center border border-[#eaeaea] bg-white md:h-[58px] md:w-[58px]">
@@ -74,11 +74,11 @@ export default function Contact() {
                 </div>
               ))}
             </div>
-            <div className="mt-2.5 flex flex-col gap-2.5 sm:mt-0">
+            <div className="flex flex-col gap-3">
               <textarea
                 name="comment"
                 placeholder="Message"
-                className="h-32 w-full resize-none border border-[#eaeaea] bg-white px-3 py-3 text-[13px] text-[#848484] outline-none md:h-[126px] md:px-4 md:py-[18px] md:text-[14px]"
+                className="min-h-[120px] w-full resize-none border border-[#eaeaea] bg-white px-3 py-3 text-[13px] text-[#848484] outline-none md:min-h-[150px] md:px-4 md:py-[18px] md:text-[14px]"
               />
               <button
                 type="button"
