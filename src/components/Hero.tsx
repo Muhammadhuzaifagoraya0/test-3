@@ -87,7 +87,7 @@ export default function Hero() {
         type="button"
         onClick={prev}
         aria-label="Previous slide"
-        className="absolute left-[70px] top-1/2 z-10 flex h-7 w-[26px] -translate-y-1/2 items-center text-white transition-transform hover:scale-[1.15]"
+        className="absolute left-2 top-1/2 z-10 flex h-7 w-[26px] -translate-y-1/2 items-center text-white transition-transform hover:scale-[1.15] md:left-[70px]"
       >
         <svg className="h-[30px] w-[30px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M4 12h16M4 12l6-6M4 12l6 6" />
@@ -97,7 +97,7 @@ export default function Hero() {
         type="button"
         onClick={next}
         aria-label="Next slide"
-        className="absolute right-[70px] top-1/2 z-10 flex h-7 w-[26px] -translate-y-1/2 items-center justify-end text-white transition-transform hover:scale-[1.15]"
+        className="absolute right-2 top-1/2 z-10 flex h-7 w-[26px] -translate-y-1/2 items-center justify-end text-white transition-transform hover:scale-[1.15] md:right-[70px]"
       >
         <svg className="h-[30px] w-[30px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M20 12H4M20 12l-6-6M20 12l-6 6" />

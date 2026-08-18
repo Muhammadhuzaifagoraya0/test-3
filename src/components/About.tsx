@@ -66,14 +66,14 @@ function useCountUp(target: number) {
 function StatCard({ stat }: { stat: (typeof stats)[number] }) {
   const { ref, value } = useCountUp(stat.value);
   return (
-    <div ref={ref} className="rounded-md border border-[#e4e4e4] px-2.5 py-[50px] text-center">
-      <span className="mb-9 inline-block">
-        <svg className="h-11 w-11 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+    <div ref={ref} className="rounded-md border border-[#e4e4e4] px-2.5 py-8 md:py-[50px] text-center">
+      <span className="mb-5 inline-block md:mb-9">
+        <svg className="h-8 w-8 text-brand md:h-11 md:w-11" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d={stat.icon} />
         </svg>
       </span>
-      <p className="mb-5 text-[56px] leading-9 text-[#060606]">{value.toLocaleString()}</p>
-      <p className="text-[18px] text-[#c7c7c7]">{stat.label}</p>
+      <p className="mb-3 text-[32px] leading-7 text-[#060606] md:mb-5 md:text-[56px] md:leading-9">{value.toLocaleString()}</p>
+      <p className="text-[14px] text-[#c7c7c7] md:text-[18px]">{stat.label}</p>
     </div>
   );
 }
@@ -117,12 +117,12 @@ export default function About() {
                 We love our clients
               </span>
             </div>
-            <div className="grid grid-cols-2 gap-[30px]">
+            <div className="grid grid-cols-2 gap-4 md:gap-[30px]">
               {clients.map((logo) => (
                 <a
                   key={logo}
                   href="#"
-                  className="flex h-[149px] items-center justify-center bg-brand transition-colors duration-150 hover:bg-[#6f6f6f]"
+                  className="flex h-24 items-center justify-center bg-brand transition-colors duration-150 hover:bg-[#6f6f6f] md:h-[149px]"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={logo} alt="Client logo" className="max-w-[60%]" />

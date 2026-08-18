@@ -78,13 +78,13 @@ export default function Portfolio() {
           <p>This is Photoshop&apos;s version of Lorem Ipsum. Proin gravida</p>
         </div>
 
-        <ul className="mb-8 flex flex-wrap justify-center gap-1 border-y border-[#d2d2d2] py-[26px]">
+        <ul className="mb-8 flex flex-wrap justify-center gap-1 border-y border-[#d2d2d2] py-3 md:py-[26px]">
           {filters.map((f) => (
             <li key={f.key}>
               <button
                 type="button"
                 onClick={() => setActive(f.key)}
-                className={`skew-fill px-4 py-1.5 text-[18px] ${
+                className={`skew-fill px-2 py-1 text-[14px] md:px-4 md:text-[18px] ${
                   active === f.key ? "active text-white" : "text-black"
                 }`}
               >
@@ -94,7 +94,7 @@ export default function Portfolio() {
           ))}
         </ul>
 
-        <div className="columns-2 gap-4 md:columns-3 lg:columns-4">
+        <div className="columns-1 gap-4 sm:columns-2 md:columns-3 lg:columns-4">
           {filtered.map((item) => (
             <div
               key={item.src}
