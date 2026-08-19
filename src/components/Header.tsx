@@ -33,7 +33,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group relative ml-1 inline-block overflow-hidden px-1.5 py-3 text-[13px] uppercase first:ml-0 lg:ml-[17px] lg:px-4 lg:text-[18px]"
+                className="group relative ml-1 inline-block px-1.5 py-3 text-[13px] uppercase first:ml-0 lg:ml-[17px] lg:px-4 lg:text-[18px]"
               >
                 <span
                   aria-hidden
