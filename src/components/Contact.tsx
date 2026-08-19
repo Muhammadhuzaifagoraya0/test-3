@@ -59,9 +59,9 @@ export default function Contact() {
           <form className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-x-4 sm:gap-y-3">
             <div className="flex flex-col gap-3">
               {fields.map((f) => (
-                <div key={f.name} className="relative pl-12 md:pl-[58px]">
-                  <span className="absolute left-0 top-0 z-10 flex h-12 w-12 items-center justify-center border border-[#eaeaea] bg-white md:h-[58px] md:w-[58px]">
-                    <svg className="h-3.5 w-3.5 text-black md:h-4 md:w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <div key={f.name} className="flex">
+                  <span className="flex h-[50px] w-[50px] shrink-0 items-center justify-center border border-[#eaeaea] bg-white md:h-[58px] md:w-[58px]">
+                    <svg className="h-4 w-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d={f.icon} />
                     </svg>
                   </span>
@@ -69,7 +69,7 @@ export default function Contact() {
                     type="text"
                     name={f.name}
                     placeholder={f.placeholder}
-                    className="w-full border border-[#eaeaea] border-l-0 bg-white px-3 py-3 text-[13px] text-[#848484] outline-none md:px-4 md:py-[18px] md:text-[14px]"
+                    className="h-[50px] w-full border border-l-0 border-[#eaeaea] bg-white px-3 text-[13px] text-[#848484] outline-none md:h-[58px] md:px-4 md:text-[14px]"
                   />
                 </div>
               ))}
@@ -78,11 +78,11 @@ export default function Contact() {
               <textarea
                 name="comment"
                 placeholder="Message"
-                className="min-h-[120px] w-full resize-none border border-[#eaeaea] bg-white px-3 py-3 text-[13px] text-[#848484] outline-none md:min-h-[150px] md:px-4 md:py-[18px] md:text-[14px]"
+                className="min-h-[120px] w-full resize-none border border-[#eaeaea] bg-white px-3 py-3 text-[13px] text-[#848484] outline-none md:min-h-[174px] md:px-4 md:py-[18px] md:text-[14px]"
               />
               <button
                 type="button"
-                className="w-full bg-[#1ab5b3] py-4 text-center text-[13px] font-bold uppercase text-white transition-opacity hover:opacity-80 md:py-[19px] md:text-[14px]"
+                className="h-[50px] w-full bg-[#1ab5b3] text-center text-[13px] font-bold uppercase text-white transition-opacity hover:opacity-80 md:h-[58px] md:text-[14px]"
               >
                 Send Message
               </button>
