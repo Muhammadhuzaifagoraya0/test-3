@@ -33,19 +33,19 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group relative ml-1 inline-block px-1.5 py-3 text-[13px] uppercase first:ml-0 lg:ml-[17px] lg:px-4 lg:text-[18px]"
+                className="group relative px-4 py-3 text-[13px] uppercase lg:ml-[17px] lg:px-5 lg:text-[18px] first:ml-0 ml-1"
               >
                 <span
                   aria-hidden
-                  className={`absolute inset-0 -z-[1] bg-brand transition-all duration-150 ${
+                  className={`absolute inset-0 -z-[1] transition-all duration-150 ${
                     isActive
-                      ? "-skew-x-[25deg] opacity-100"
-                      : "skew-x-0 opacity-0 group-hover:-skew-x-[25deg] group-hover:opacity-100"
+                      ? "bg-brand -skew-x-[25deg] opacity-100"
+                      : "bg-brand skew-x-0 opacity-0 group-hover:-skew-x-[25deg] group-hover:opacity-100"
                   }`}
                 />
                 <span
-                  className={`relative ${
-                    isActive ? "text-white" : "text-[#010000] group-hover:text-white"
+                  className={`relative z-[1] ${
+                    isActive ? "text-white font-semibold" : "text-[#010000] group-hover:text-white"
                   }`}
                 >
                   {link.label}
