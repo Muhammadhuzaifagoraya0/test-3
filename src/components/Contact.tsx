@@ -8,7 +8,7 @@ export default function Contact() {
   return (
     <section
       id="contact-section"
-      className="relative overflow-hidden bg-[#1a1a1a] pt-16 pb-16 md:pt-[100px] md:pb-[70px]"
+      className="relative flex min-h-full flex-col overflow-hidden bg-[#1a1a1a] pt-16 pb-16 md:pt-[100px] md:pb-[70px]"
     >
       <div
         className="absolute inset-0 opacity-40 grayscale"
