@@ -37,14 +37,14 @@ export default function Header() {
               >
                 <span
                   aria-hidden
-                  className={`absolute inset-0 z-0 bg-brand transition-all duration-150 ${
+                  className={`absolute inset-0 bg-brand transition-all duration-150 ${
                     isActive
                       ? "-skew-x-[25deg] opacity-100"
                       : "skew-x-0 opacity-0 group-hover:-skew-x-[25deg] group-hover:opacity-100"
                   }`}
                 />
                 <span
-                  className={`relative z-10 ${
+                  className={`relative ${
                     isActive ? "text-white" : "text-[#010000] group-hover:text-white"
                   }`}
                 >
