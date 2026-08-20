@@ -5,73 +5,109 @@
   --color-brand-dark: #1ab5b3;
   --color-brand-light: #54babb;
   --color-dark-overlay: #2b303c;
+  --font-heading: var(--font-heading), "Montserrat", sans-serif;
+  --font-body: var(--font-body), "Open Sans", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
-  font-family: "Courier New", Courier, monospace;
-  color: #333;
-  background: #fff;
+  font-family: var(--font-body);
+  color: #333333;
+  background: #ffffff;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
 }
 
 .container-custom {
   width: 100%;
-  max-width: 1170px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
-@media (max-width: 400px) {
+@media (min-width: 640px) {
   .container-custom {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: 32px;
+    padding-right: 32px;
   }
 }
 
 .title-section h1 {
-  color: #000;
-  font-size: 45px;
-  font-weight: 700;
+  font-family: var(--font-heading);
+  color: #111111;
+  font-size: clamp(24px, 4vw, 42px);
+  font-weight: 800;
   text-transform: uppercase;
-  margin: 0 10px;
+  letter-spacing: 0.06em;
+  margin: 0 auto 10px auto;
+  line-height: 1.2;
 }
 
 .title-section p {
-  color: #838383;
-  font-size: 18px;
-  line-height: 24px;
-  margin: 0;
+  font-family: var(--font-body);
+  color: #777777;
+  font-size: clamp(14px, 1.8vw, 17px);
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 620px;
 }
 
-/* Static skewed teal bg that flattens on hover (CTA buttons / service icons) */
+/* Skewed CTA button effect */
 .skew-cta {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   z-index: 0;
+  transition: all 0.2s ease;
+  font-family: var(--font-heading);
 }
+
 .skew-cta::after {
   content: "";
   position: absolute;
   inset: 0;
   background: var(--color-brand);
-  transform: skewX(-25deg);
-  transition: transform 0.17s ease-in-out;
+  transform: skewX(-20deg);
+  transition: transform 0.2s ease-in-out, background 0.2s ease;
   z-index: -1;
-  backface-visibility: hidden;
 }
+
 .skew-cta:hover::after {
   transform: skewX(0deg);
 }
+
 .skew-cta > * {
   position: relative;
   z-index: 1;
 }
 
 .skew-cta-white::after {
-  background: #fff;
+  background: #ffffff;
   transform: skewX(-20deg);
+}
+
+.skew-cta-white:hover::after {
+  transform: skewX(0deg);
+  background: #ffffff;
 }
 
 /* Service icon box with skewed teal background */
@@ -80,62 +116,59 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   background: var(--color-brand);
-  transform: skewX(-25deg);
+  transform: skewX(-20deg);
   flex-shrink: 0;
-  overflow: visible;
-}
-.service-icon-box svg {
-  transform: skewX(25deg);
-  width: 32px;
-  height: 32px;
+  transition: transform 0.25s ease, background-color 0.25s ease;
 }
 
-@media (max-width: 767px) {
+.service-icon-box svg {
+  transform: skewX(20deg);
+  width: 28px;
+  height: 28px;
+}
+
+@media (min-width: 768px) {
   .service-icon-box {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
   }
   .service-icon-box svg {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
   }
 }
 
-/* Skewed teal bg that fills in from 0 height on hover/active (filter tabs) */
+/* Skewed teal fill on hover/active (filter tabs) */
 .skew-fill {
   position: relative;
   display: inline-block;
   overflow: hidden;
   z-index: 0;
+  font-family: var(--font-heading);
+  transition: color 0.2s ease;
 }
+
 .skew-fill::after {
   content: "";
   position: absolute;
   inset: 0;
   height: 0;
   background: var(--color-brand);
-  transform: skewX(-25deg);
-  transition: height 0.17s ease-in-out;
+  transform: skewX(-20deg);
+  transition: height 0.2s ease-in-out;
   z-index: -1;
 }
+
 .skew-fill:hover::after,
 .skew-fill.active::after {
   height: 100%;
 }
+
 .skew-fill > * {
   position: relative;
   z-index: 1;
 }
 
-@media (max-width: 767px) {
-  .title-section h1 {
-    font-size: 28px;
-    margin: 0 5px;
-  }
-  .title-section p {
-    font-size: 15px;
-  }
-}

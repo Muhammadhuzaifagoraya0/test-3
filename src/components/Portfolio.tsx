@@ -65,67 +65,101 @@ const items = [
 
 export default function Portfolio() {
   const [active, setActive] = useState("*");
-  const filtered = active === "*" ? items : items.filter((i) => i.tags.includes(active));
+  const filtered =
+    active === "*" ? items : items.filter((i) => i.tags.includes(active));
 
   return (
     <section
       id="portfolio-section"
-      className="bg-[#fafafa] pt-16 pb-4 md:pt-[100px]"
+      className="flex flex-1 flex-col justify-center bg-[#fafafa] py-16 md:py-20 lg:py-24"
     >
-      <div className="container-custom">
-        <div className="title-section mb-10 text-center">
+      <div className="container-custom my-auto">
+        <div className="title-section mb-8 md:mb-12 text-center">
           <h1>Our Portfolio</h1>
           <p>This is Photoshop&apos;s version of Lorem Ipsum. Proin gravida</p>
         </div>
 
-        <ul className="mb-8 flex flex-wrap justify-center gap-1 border-y border-[#d2d2d2] py-3 md:py-[26px]">
-          {filters.map((f) => (
-            <li key={f.key}>
-              <button
-                type="button"
-                onClick={() => setActive(f.key)}
-                className={`skew-fill px-2 py-1 text-[14px] md:px-4 md:text-[18px] ${
-                  active === f.key ? "active text-white" : "text-black"
-                }`}
-              >
-                <span>{f.label}</span>
-              </button>
-            </li>
-          ))}
-        </ul>
+        {/* Filter Navigation */}
+        <div className="mb-10 border-y border-[#d2d2d2] py-3 md:py-4">
+          <ul className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-3">
+            {filters.map((f) => (
+              <li key={f.key}>
+                <button
+                  type="button"
+                  onClick={() => setActive(f.key)}
+                  className={`skew-fill cursor-pointer px-3 py-1.5 text-[13px] font-bold uppercase tracking-wider transition-all sm:px-4 sm:text-[15px] md:text-[16px] ${
+                    active === f.key ? "active text-white" : "text-gray-800"
+                  }`}
+                >
+                  <span>{f.label}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-        <div className="columns-1 gap-4 sm:columns-2 md:columns-3 lg:columns-4">
-          {filtered.map((item) => (
+        {/* Grid */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {filtered.map((item, idx) => (
             <div
-              key={item.src}
-              className="group relative mb-4 break-inside-avoid overflow-hidden"
+              key={`${item.src}-${idx}`}
+              className="group relative overflow-hidden bg-gray-200 shadow-xs"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={item.src} alt={item.title} className="block w-full" />
-              <div className="absolute inset-0 flex scale-[1.15] flex-col items-center justify-center bg-brand/90 text-center opacity-0 transition-all duration-200 group-hover:scale-100 group-hover:opacity-100">
-                <div className="scale-125 rotate-180 transition-all duration-300 group-hover:scale-100 group-hover:rotate-0">
-                  <h2 className="px-4 text-lg font-bold leading-tight text-white">
-                    {item.title}
-                  </h2>
-                  <span className="text-[13px] font-bold text-white">
-                    development, mobile
-                  </span>
-                </div>
-                <div className="absolute -bottom-11 left-0 flex w-full justify-center transition-all duration-300 group-hover:bottom-0">
+              <img
+                src={item.src}
+                alt={item.title}
+                className="block w-full aspect-[4/3] object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+
+              {/* Hover overlay */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-brand/90 p-4 text-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <h3 className="text-[17px] font-bold uppercase leading-snug text-white md:text-[19px]">
+                  {item.title}
+                </h3>
+                <span className="mt-1 text-[12px] font-medium uppercase tracking-wider text-white/90">
+                  development, mobile
+                </span>
+
+                <div className="mt-4 flex items-center justify-center gap-2">
                   <a
                     href={item.src}
-                    className="skew-cta skew-cta-white flex h-[43px] w-[47px] items-center justify-center text-brand"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="View larger image"
+                    className="skew-cta skew-cta-white flex h-10 w-10 items-center justify-center text-brand shadow-sm transition-transform hover:scale-110"
                   >
-                    <svg className="relative z-10 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
+                    <svg
+                      className="relative z-10 h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"
+                      />
                     </svg>
                   </a>
                   <a
                     href="#"
-                    className="skew-cta skew-cta-white flex h-[43px] w-[47px] items-center justify-center text-brand"
+                    aria-label="View details"
+                    className="skew-cta skew-cta-white flex h-10 w-10 items-center justify-center text-brand shadow-sm transition-transform hover:scale-110"
                   >
-                    <svg className="relative z-10 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m5.231 13.481L15 17.25m-1.519-3.545a2.25 2.25 0 013.182 3.182L15 21l-3.75-3.75" />
+                    <svg
+                      className="relative z-10 h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"
+                      />
                     </svg>
                   </a>
                 </div>
@@ -137,3 +171,4 @@ export default function Portfolio() {
     </section>
   );
 }
+

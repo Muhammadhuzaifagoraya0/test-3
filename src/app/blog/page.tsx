@@ -1,5 +1,6 @@
-import Blog from "@/components/Blog";
+import { redirect } from "next/navigation";
 
 export default function BlogPage() {
-  return <Blog />;
+  redirect("/#blog-section");
 }
+

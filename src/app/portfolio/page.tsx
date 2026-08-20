@@ -1,5 +1,6 @@
-import Portfolio from "@/components/Portfolio";
+import { redirect } from "next/navigation";
 
 export default function PortfolioPage() {
-  return <Portfolio />;
+  redirect("/#portfolio-section");
 }
+

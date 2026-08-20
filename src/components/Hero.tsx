@@ -51,59 +51,82 @@ export default function Hero() {
   return (
     <section
       id="home-section"
-      className="relative flex h-screen min-h-[500px] items-center justify-center overflow-hidden bg-[#1b1f27]"
+      className="relative flex h-[500px] sm:h-[580px] md:h-[650px] lg:h-[750px] max-h-[85vh] w-full items-center justify-center overflow-hidden bg-[#1b1f27]"
       style={{
         backgroundImage: "url('/upload/slide.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/55 backdrop-brightness-90" />
+
       {slides.map((slide, i) => (
         <div
           key={i}
-          className={`absolute inset-0 flex flex-col items-center justify-center px-6 text-center transition-opacity duration-700 ${
+          className={`absolute inset-0 flex flex-col items-center justify-center px-8 sm:px-14 md:px-20 text-center transition-opacity duration-700 z-10 ${
             i === active ? "opacity-100" : "pointer-events-none opacity-0"
           }`}
         >
-          <h1 className="mx-4 max-w-4xl text-3xl uppercase leading-tight text-white md:text-[60px]">
+          <h1 className="max-w-4xl text-2xl sm:text-4xl md:text-5xl lg:text-[56px] uppercase font-bold leading-tight text-white drop-shadow-md">
             {slide.heading}
           </h1>
-          <p className="mx-auto mt-2 max-w-xl text-base leading-relaxed text-white md:text-[20px]">
+          <p className="mx-auto mt-3 sm:mt-4 max-w-2xl text-sm sm:text-base md:text-lg lg:text-[20px] leading-relaxed text-gray-200 drop-shadow-xs">
             {slide.text}
           </p>
           {slide.button && (
-            <Link href="/about" className="skew-cta mt-6 px-8 py-3.5 text-[17px] font-bold uppercase text-white">
+            <Link
+              href="/about"
+              className="skew-cta mt-6 sm:mt-8 px-6 sm:px-8 py-3 text-[14px] sm:text-[16px] font-bold uppercase tracking-wider text-white shadow-lg"
+            >
               <span>Learn More</span>
             </Link>
           )}
         </div>
       ))}
 
-      {/* the original hides .flex-control-nav (display:none) - no dots on the real site */}
-
-      {/* arrows - matches FlexSlider default exactly: fa-arrow-left/right glyph, no box,
-          vertically centered on the slider content (original: top:50% of a container
-          anchored at 50% - 100px, i.e. essentially true vertical center) */}
+      {/* Navigation Arrows */}
       <button
         type="button"
         onClick={prev}
         aria-label="Previous slide"
-        className="absolute left-2 top-1/2 z-10 flex h-7 w-[26px] -translate-y-1/2 items-center text-white transition-transform hover:scale-[1.15] md:left-[70px]"
+        className="absolute left-2 sm:left-6 md:left-10 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/30 text-white transition-all hover:bg-brand hover:scale-110 active:scale-95"
       >
-        <svg className="h-[30px] w-[30px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M4 12h16M4 12l6-6M4 12l6 6" />
+        <svg
+          className="h-5 w-5 md:h-6 md:w-6"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={2.5}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M15 19l-7-7 7-7"
+          />
         </svg>
       </button>
       <button
         type="button"
         onClick={next}
         aria-label="Next slide"
-        className="absolute right-2 top-1/2 z-10 flex h-7 w-[26px] -translate-y-1/2 items-center justify-end text-white transition-transform hover:scale-[1.15] md:right-[70px]"
+        className="absolute right-2 sm:right-6 md:right-10 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/30 text-white transition-all hover:bg-brand hover:scale-110 active:scale-95"
       >
-        <svg className="h-[30px] w-[30px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M20 12H4M20 12l-6-6M20 12l-6 6" />
+        <svg
+          className="h-5 w-5 md:h-6 md:w-6"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={2.5}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M9 5l7 7-7 7"
+          />
         </svg>
       </button>
     </section>
   );
 }
+

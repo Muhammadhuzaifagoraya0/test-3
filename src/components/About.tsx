@@ -17,7 +17,7 @@ const stats = [
   },
   {
     value: 1479,
-    label: "Coffe Drinked",
+    label: "Coffee Drinked",
     icon: "M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6a1.125 1.125 0 011.125 1.125v3.75a3 3 0 01-3 3h-1.5a3 3 0 01-3-3v-3.75zM2.25 7.125V6a1.125 1.125 0 011.125-1.125h11.25c.621 0 1.125.504 1.125 1.125v1.125m0 0h1.5a2.25 2.25 0 012.25 2.25v2.25a2.25 2.25 0 01-2.25 2.25h-1.5m-15.75 6h13.5",
   },
   {
@@ -54,7 +54,7 @@ function useCountUp(target: number) {
           requestAnimationFrame(step);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -66,78 +66,111 @@ function useCountUp(target: number) {
 function StatCard({ stat }: { stat: (typeof stats)[number] }) {
   const { ref, value } = useCountUp(stat.value);
   return (
-    <div ref={ref} className="rounded-md border border-[#e4e4e4] px-2.5 py-8 md:py-[50px] text-center">
-      <span className="mb-5 inline-block md:mb-9">
-        <svg className="h-8 w-8 text-brand md:h-11 md:w-11" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d={stat.icon} />
+    <div
+      ref={ref}
+      className="flex flex-col items-center justify-center rounded-sm border border-[#e8e8e8] bg-white p-6 md:p-8 text-center shadow-xs transition-transform hover:-translate-y-1 hover:shadow-md duration-200"
+    >
+      <span className="mb-4 inline-flex items-center justify-center text-brand">
+        <svg
+          className="h-8 w-8 md:h-10 md:w-10"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={1.5}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d={stat.icon}
+          />
         </svg>
       </span>
-      <p className="mb-3 text-[32px] leading-7 text-[#060606] md:mb-5 md:text-[56px] md:leading-9">{value.toLocaleString()}</p>
-      <p className="text-[14px] text-[#c7c7c7] md:text-[18px]">{stat.label}</p>
+      <p className="mb-2 text-2xl font-bold text-[#111111] sm:text-3xl md:text-4xl lg:text-[44px] leading-tight">
+        {value.toLocaleString()}
+      </p>
+      <p className="text-[13px] font-medium text-[#999999] md:text-[15px] uppercase tracking-wide">
+        {stat.label}
+      </p>
     </div>
   );
 }
 
 export default function About() {
   return (
-    <section id="about-section" className="pt-16 md:pt-[100px]">
-      <div className="container-custom">
-        <div className="mb-12 grid gap-12 md:grid-cols-2">
+    <section
+      id="about-section"
+      className="flex flex-1 flex-col justify-center py-16 md:py-20 lg:py-24 bg-white"
+    >
+      <div className="container-custom my-auto">
+        {/* Bio & Clients Split */}
+        <div className="mb-14 md:mb-20 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-start">
+          {/* Biography */}
           <div>
-            <div className="mb-10">
-              <h2 className="mb-1.5 text-[24px] font-bold uppercase text-black md:text-[35px]">
+            <div className="mb-6">
+              <h2 className="mb-2 text-[22px] font-bold uppercase text-black md:text-[32px] tracking-wide">
                 Company Biography
               </h2>
-              <span className="inline-block bg-brand px-1.5 text-[14px] uppercase text-white md:text-[18px]">
+              <span className="inline-block bg-brand px-2.5 py-0.5 text-[12px] md:text-[14px] font-bold uppercase text-white tracking-wider">
                 Short story about us
               </span>
             </div>
-            <p className="mb-5 text-[16px] leading-[22px] text-[#8b8b8b] md:text-[20px] md:leading-[26px]">
-              This is <span className="font-bold text-brand">Photoshop&apos;s</span> version of
-              Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin,
-              lorem quis bibendum auctor, nisi elit
+            <p className="mb-4 text-[15px] md:text-[17px] leading-relaxed text-[#666666]">
+              This is{" "}
+              <span className="font-bold text-brand">Photoshop&apos;s</span>{" "}
+              version of Lorem Ipsum. Proin gravida nibh vel velit auctor
+              aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi
+              elit
             </p>
-            <p className="mb-5 text-[16px] leading-[22px] text-[#8b8b8b] md:text-[20px] md:leading-[26px]">
-              Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan
-              ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris
-              vitae erat consequat auctor eu in elit.{" "}
-              <span className="font-bold text-brand">Class aptent taciti</span> sociosqu ad
-              litora torquent per conubia nostra, per inceptos himenaeos.
+            <p className="mb-4 text-[14px] md:text-[16px] leading-relaxed text-[#777777]">
+              Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.
+              Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt
+              auctor a ornare odio. Sed non mauris vitae erat consequat auctor
+              eu in elit.{" "}
+              <span className="font-bold text-brand">Class aptent taciti</span>{" "}
+              sociosqu ad litora torquent per conubia nostra, per inceptos
+              himenaeos.
             </p>
-            <p className="text-[16px] leading-[22px] text-[#8b8b8b] md:text-[20px] md:leading-[26px]">
-              Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a
-              augue. Sed non
+            <p className="text-[14px] md:text-[16px] leading-relaxed text-[#777777]">
+              Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum
+              sit amet a augue. Sed non neque elit.
             </p>
           </div>
 
+          {/* Clients */}
           <div>
-            <div className="mb-10">
-              <h2 className="mb-1.5 text-[24px] font-bold uppercase text-black md:text-[35px]">Our Clients</h2>
-              <span className="inline-block bg-brand px-1.5 text-[14px] uppercase text-white md:text-[18px]">
+            <div className="mb-6">
+              <h2 className="mb-2 text-[22px] font-bold uppercase text-black md:text-[32px] tracking-wide">
+                Our Clients
+              </h2>
+              <span className="inline-block bg-brand px-2.5 py-0.5 text-[12px] md:text-[14px] font-bold uppercase text-white tracking-wider">
                 We love our clients
               </span>
             </div>
-            <div className="grid grid-cols-2 gap-4 md:gap-[30px]">
-              {clients.map((logo) => (
-                <a
-                  key={logo}
-                  href="#"
-                  className="flex h-24 items-center justify-center bg-brand transition-colors duration-150 hover:bg-[#6f6f6f] md:h-[149px]"
+            <div className="grid grid-cols-2 gap-4 sm:gap-6">
+              {clients.map((logo, idx) => (
+                <div
+                  key={idx}
+                  className="flex h-24 sm:h-28 md:h-32 items-center justify-center bg-brand p-4 shadow-xs transition-all duration-200 hover:bg-[#555555] hover:shadow-md"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={logo} alt="Client logo" className="max-w-[60%]" />
-                </a>
+                  <img
+                    src={logo}
+                    alt="Client logo"
+                    className="max-h-[60%] max-w-[80%] object-contain"
+                  />
+                </div>
               ))}
             </div>
           </div>
         </div>
 
-        <div className="title-section mb-10 text-center">
+        {/* Stats Section */}
+        <div className="title-section mb-10 md:mb-14 text-center">
           <h1>Company stats</h1>
           <p>This is Photoshop&apos;s version of Lorem Ipsum. Proin gravida</p>
         </div>
 
-        <div className="grid grid-cols-2 gap-6 pb-16 md:grid-cols-4 md:pb-[100px]">
+        <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
           {stats.map((stat) => (
             <StatCard key={stat.label} stat={stat} />
           ))}
@@ -146,3 +179,4 @@ export default function About() {
     </section>
   );
 }
+

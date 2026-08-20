@@ -27,38 +27,63 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services-section" className="pt-16 md:pt-[100px]">
-      <div className="container-custom">
-        <div className="title-section mb-10 text-center">
+    <section
+      id="services-section"
+      className="flex flex-1 flex-col justify-center py-16 md:py-20 lg:py-24 bg-white"
+    >
+      <div className="container-custom my-auto">
+        <div className="title-section mb-12 md:mb-16 text-center">
           <h1>Our Services</h1>
           <p>This is Photoshop&apos;s version of Lorem Ipsum. Proin gravida</p>
         </div>
 
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
-            <div key={service.title} className="flex items-start gap-5">
+            <div
+              key={service.title}
+              className="flex items-start gap-5 p-2 transition-transform hover:-translate-y-1 duration-200"
+            >
               <div className="service-icon-box shrink-0">
-                <svg className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <svg
+                  className="h-8 w-8 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={1.5}
+                >
                   {service.icon.split("|").map((d) => (
-                    <path key={d} strokeLinecap="round" strokeLinejoin="round" d={d} />
+                    <path
+                      key={d}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d={d}
+                    />
                   ))}
                 </svg>
               </div>
-              <div className="text-center">
-                <h3 className="mb-2 text-[18px] uppercase text-[#181818] md:text-[20px]">{service.title}</h3>
-                <p className="text-[14px] leading-[22px] text-[#a8a8a8] md:text-[15px] md:leading-[22px]">
-                  Duis sed odio sit amet nibh vulputate cursus a sit amet mauris morbi accumsan.
+              <div>
+                <h3 className="mb-2 text-[17px] font-bold uppercase text-[#181818] md:text-[19px] tracking-wide">
+                  {service.title}
+                </h3>
+                <p className="text-[14px] leading-relaxed text-[#777777] md:text-[15px]">
+                  Duis sed odio sit amet nibh vulputate cursus a sit amet mauris
+                  morbi accumsan.
                 </p>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-14 md:mt-20 text-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/image.png" alt="Devices" className="inline-block max-w-full" />
+          <img
+            src="/images/image.png"
+            alt="Responsive Devices"
+            className="inline-block max-w-full h-auto drop-shadow-md"
+          />
         </div>
       </div>
     </section>
   );
 }
+

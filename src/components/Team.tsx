@@ -1,8 +1,8 @@
 const team = [
-  { name: "Owen Miller", img: "/upload/team1.jpg" },
-  { name: "Mike William", img: "/upload/team2.jpg" },
-  { name: "Besim Dauti", img: "/upload/team3.jpg" },
-  { name: "Faton Avdiu", img: "/upload/team4.jpg" },
+  { name: "Owen Miller", img: "/upload/team1.jpg", role: "developer" },
+  { name: "Mike William", img: "/upload/team2.jpg", role: "developer" },
+  { name: "Besim Dauti", img: "/upload/team3.jpg", role: "developer" },
+  { name: "Faton Avdiu", img: "/upload/team4.jpg", role: "developer" },
 ];
 
 const socials: { label: string; d?: string }[] = [
@@ -22,48 +22,85 @@ export default function Team() {
   return (
     <section
       id="team-section"
-      className="relative overflow-hidden bg-[#2b303c] py-16 md:pt-[100px] md:pb-[35px]"
-      style={{
-        backgroundImage:
-          "linear-gradient(rgba(43,48,60,0.9), rgba(43,48,60,0.9)), url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1600&q=80')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      className="relative flex flex-1 flex-col justify-center overflow-hidden bg-[#2b303c] py-16 md:py-20 lg:py-24"
     >
-      <div className="container-custom">
-        <div className="title-section relative z-10 mb-10 text-center">
+      <div
+        className="absolute inset-0 opacity-20 mix-blend-overlay bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/upload/background1.jpg')",
+        }}
+      />
+      <div className="absolute inset-0 bg-[#2b303c]/90" />
+
+      <div className="container-custom relative z-10 my-auto">
+        <div className="title-section mb-10 md:mb-14 text-center">
           <h1 className="!text-white">Meet The Team</h1>
-          <p className="!text-white">This is Photoshop&apos;s version of Lorem Ipsum. Proin gravida</p>
+          <p className="!text-gray-300">
+            This is Photoshop&apos;s version of Lorem Ipsum. Proin gravida
+          </p>
         </div>
 
-        <div className="relative z-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {team.map((member) => (
-            <div key={member.name} className="mb-10">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={member.img} alt={member.name} className="w-full" />
-              <div className="bg-black/50 px-5 py-4">
-                <h5 className="text-[20px] font-bold text-white">{member.name}</h5>
-                <span className="text-[14px] text-[#aeaeae]">developer</span>
+            <div
+              key={member.name}
+              className="flex flex-col overflow-hidden group shadow-lg"
+            >
+              <div className="relative overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={member.img}
+                  alt={member.name}
+                  className="w-full aspect-[4/5] object-cover transition-transform duration-300 group-hover:scale-105"
+                />
               </div>
-              <ul className="flex gap-2 bg-brand px-5 py-[23px]">
+
+              <div className="bg-[#1b1f27] px-5 py-4 text-left">
+                <h3 className="text-[18px] font-bold text-white md:text-[20px]">
+                  {member.name}
+                </h3>
+                <span className="text-[13px] font-medium text-[#aeaeae] uppercase tracking-wider">
+                  {member.role}
+                </span>
+              </div>
+
+              <ul className="flex items-center justify-start gap-2 bg-brand px-5 py-3.5">
                 {socials.map((s) => (
                   <li key={s.label}>
                     <a
                       href="#"
                       aria-label={s.label}
-                      className="flex h-[30px] w-[30px] items-center justify-center rounded-full border border-white text-white transition-colors hover:bg-white hover:text-brand"
+                      className="flex h-7 w-7 items-center justify-center rounded-full border border-white text-white transition-colors duration-200 hover:bg-white hover:text-brand"
                     >
                       {s.d ? (
-                        <svg className="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
+                        <svg
+                          className="h-3.5 w-3.5 fill-current"
+                          viewBox="0 0 24 24"
+                        >
                           <path d={s.d} />
                         </svg>
                       ) : s.label === "rss" ? (
-                        <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <circle cx="5" cy="19" r="1.5" fill="currentColor" stroke="none" />
-                          <path strokeLinecap="round" d="M4 11a9 9 0 019 9M4 4a16 16 0 0116 16" />
+                        <svg
+                          className="h-3.5 w-3.5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <circle
+                            cx="5"
+                            cy="19"
+                            r="1.5"
+                            fill="currentColor"
+                            stroke="none"
+                          />
+                          <path
+                            strokeLinecap="round"
+                            d="M4 11a9 9 0 019 9M4 4a16 16 0 0116 16"
+                          />
                         </svg>
                       ) : (
-                        <span className="text-[10px] font-bold">G+</span>
+                        <span className="text-[9px] font-bold">G+</span>
                       )}
                     </a>
                   </li>
@@ -76,3 +113,4 @@ export default function Team() {
     </section>
   );
 }
+
